@@ -16,11 +16,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return render_template('chat.html')
-
-@app.route("/whatsapp")
-def whatsapp():
     return render_template('whatsapp.html')
+
+@app.route("/chat")
+def whatsapp():
+    return render_template('chat.html')
 
 @app.route("/ask", methods=['POST'])
 def ask():
