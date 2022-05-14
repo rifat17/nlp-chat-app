@@ -25,8 +25,8 @@ def whatsapp():
 @app.route("/ask", methods=['POST'])
 def ask():
     message = str(request.form['messageText'])
-    response = answer = ChatwithUser.reply(message)
-    return jsonify({'status':'OK','answer':response})
+    answer, closest_question = ChatwithUser.reply(message)
+    return jsonify({'status':'OK','answer':answer, 'closest_question': str(closest_question[0])}, )
 
 
 if __name__ == "__main__":

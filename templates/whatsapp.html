@@ -55,6 +55,7 @@
                     success: function (response) {
                         $('#messageText').val('');
                         var answer = response.answer;
+                        var closest_question = response.closest_question;
                         const chatPanel = document.getElementById("chatPanel");
                         $(".media-list").append(`
                         <div class="chat-l">
@@ -62,6 +63,8 @@
                                 <p>
                                     ${answer}
                                 </p>
+                            <hr/>
+                            <p style="font-size:10px">Closes Answer: ${closest_question} </p>
                             </div>
                             <div class="sp"></div>
                         </div>
@@ -108,12 +111,15 @@
 
                 <div class="chat-footer">
                     <!-- <img src="img/emo.png" class="emo"> -->
-                    <textarea placeholder="Type a message" name="messageText" id="messageText" autofocus></textarea>
+                    <!-- <textarea placeholder="Type a message" name="messageText" id="messageText" autofocus></textarea> -->
+                    <input style="height: 40px; width: 100%; font-size: 20px; padding: 10px;margin: 3px; border: none;" type="text"
+                        class="form-control" placeholder="Query.." name="messageText" id="messageText" autofocus />
                     <div class="icons">
                         <!-- <img src="img/attach file.png">
                         <img src="img/camera.png"> -->
                     </div>
-                    <button class="btn btn-info" type="button" id="chatbot-form-btn">Send</button>
+                    <button style="height: 40px; width: 20%; padding: 1px; font-size: 20px;" class="btn btn-info" type="button"
+                        id="chatbot-form-btn">Ask</button>
                     <!-- <img src="img/mic.png" class="mic"> -->
                 </div>
             </form>

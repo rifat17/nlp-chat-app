@@ -16,7 +16,7 @@ def reply(user_input):
     vectorized_user_input = vectorizer.transform([user_input])
     similarities = cosine_similarity(vectorized_user_input,vectorized_questions)
     closest_question = numpy.argmax(similarities,axis=1)
-    print("Closest question: ", closest_question)
+    # print("Closest question: ", closest_question)
     answer = dataframe.Answer.iloc[closest_question].values[0]
     # print("Answer: ", answer)
-    return answer
+    return answer, closest_question
